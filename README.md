@@ -3,10 +3,12 @@
 
 ## 2. 环境准备
 
-- 为适应线上集群环境，可保持spakr版本相同
+- 为适应线上集群环境，可保持spark版本相同
 
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/140520/1656654918566-740d072b-a329-4af1-9c8f-dc6988a4b9a6.png#clientId=u465b5286-7df6-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=264&id=u18dcc1cf&margin=%5Bobject%20Object%5D&name=image.png&originHeight=264&originWidth=717&originalType=binary&ratio=1&rotation=0&showTitle=false&size=44129&status=done&style=none&taskId=uf6166170-c896-4cb8-a552-ba664c6cc72&title=&width=717)
+
 然后去spark官网下载spark（因为我们cdh spark版本是2.4.0）就下载对应的版本并解压到指定位置，然后设置SPARK_HOME
+
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/140520/1656655234686-606bb804-f6c4-44b8-b932-2a48833cd28b.png#clientId=u465b5286-7df6-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=748&id=u248482d9&margin=%5Bobject%20Object%5D&name=image.png&originHeight=748&originWidth=952&originalType=binary&ratio=1&rotation=0&showTitle=false&size=187905&status=done&style=none&taskId=u9c436913-0959-413b-a478-d0bb3a72de4&title=&width=952)
 
 - clickhouse jdbc 驱动包下载
@@ -21,10 +23,12 @@
 第三种方法，亲自在环境变量里设置
 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721289635-eda4d85c-4172-43c2-bd37-8a1e735e7f32.png#crop=0&crop=0&crop=1&crop=1&height=1120&id=s5X8I&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1120&originWidth=1480&originalType=binary&ratio=1&rotation=0&showTitle=false&size=141082&status=done&style=none&title=&width=1480)
 
-5. 配置 **pyspark和py4j**
+ 配置 **pyspark和py4j**
 
 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721535115-3e98f33d-0f00-4184-bae1-b051971153b8.png#crop=0&crop=0&crop=1&crop=1&height=1276&id=aMPhy&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1276&originWidth=2022&originalType=binary&ratio=1&rotation=0&showTitle=false&size=153396&status=done&style=none&title=&width=2022)
+
 ## 3. 建表
+
 ```plsql
 create TABLE data_report.dwd_test_replica on cluster hgj_clickhouse_2shards_2replicas
 (
