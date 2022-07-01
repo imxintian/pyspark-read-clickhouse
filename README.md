@@ -12,16 +12,20 @@
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/140520/1656655234686-606bb804-f6c4-44b8-b932-2a48833cd28b.png#clientId=u465b5286-7df6-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=748&id=u248482d9&margin=%5Bobject%20Object%5D&name=image.png&originHeight=748&originWidth=952&originalType=binary&ratio=1&rotation=0&showTitle=false&size=187905&status=done&style=none&taskId=u9c436913-0959-413b-a478-d0bb3a72de4&title=&width=952)
 
 - clickhouse jdbc 驱动包下载
-
-[pyspark read clickhouse by jdbc](https://www.yuque.com/imxintian/learnlib/wfzl7i?view=doc_embed)
+    pyspark 在pycharm中通过jdbc的方式读取clickhouse
+    1. 下载驱动
+    https://github.com/ClickHouse/clickhouse-jdbc
+    2. 把驱动移动到 之前下载好的spark文件 spark-2.4.0-bin-hadoop2.6/jars
+    3. 配置 calssname : com.clickhouse.jdbc.ClickHouseDriver
+        即为 ("driver", "com.clickhouse.jdbc.ClickHouseDriver")
 
 - 配置pycharm（图例展示为spark 2.4.2版本）
 
-加载本地spark环境
-有三种方法 如图 任选其一即可
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721171545-45a3b9e6-e262-4afe-b66e-59349a327079.png#crop=0&crop=0&crop=1&crop=1&height=674&id=okplI&margin=%5Bobject%20Object%5D&name=image.png&originHeight=674&originWidth=1706&originalType=binary&ratio=1&rotation=0&showTitle=false&size=109762&status=done&style=none&title=&width=1706)
-第三种方法，亲自在环境变量里设置
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721289635-eda4d85c-4172-43c2-bd37-8a1e735e7f32.png#crop=0&crop=0&crop=1&crop=1&height=1120&id=s5X8I&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1120&originWidth=1480&originalType=binary&ratio=1&rotation=0&showTitle=false&size=141082&status=done&style=none&title=&width=1480)
+    加载本地spark环境
+    有三种方法 如图 任选其一即可
+    ![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721171545-45a3b9e6-e262-4afe-b66e-59349a327079.png#crop=0&crop=0&crop=1&crop=1&height=674&id=okplI&margin=%5Bobject%20Object%5D&name=image.png&originHeight=674&originWidth=1706&originalType=binary&ratio=1&rotation=0&showTitle=false&size=109762&status=done&style=none&title=&width=1706)
+    第三种方法，亲自在环境变量里设置
+    ![image.png](https://cdn.nlark.com/yuque/0/2020/png/140520/1606721289635-eda4d85c-4172-43c2-bd37-8a1e735e7f32.png#crop=0&crop=0&crop=1&crop=1&height=1120&id=s5X8I&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1120&originWidth=1480&originalType=binary&ratio=1&rotation=0&showTitle=false&size=141082&status=done&style=none&title=&width=1480)
 
  配置 **pyspark和py4j**
 
@@ -58,6 +62,7 @@ cityHash64(customer_id));
 ```
 
 ## 代码
+
 ```python
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
@@ -135,12 +140,11 @@ class SparkClickHouse:
             
 
 ```
+
 可能遇到的问题
+
 ```python
  'TypeError: an integer is required (got type bytes)' 
 ```
+
 可能你的python3.8版本不兼容，降级到python3.7即可。
-
-
-
-
